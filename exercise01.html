@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 6;
+        // let a = 2; //let 不能被重复定义。
+        console.log(a);
+
+        //循环遍历每一个数组中的值
+        var arr = [1,2,3,4,5,6];
+        for(var i = 0; i < arr.length; i++){
+            console.log(i);
+        };
+
+        //遍历对象中每一个属性的值
+        var c = { 
+            name: 'david',
+            age: 38,
+            sex: 'male'
+        };
+        for(var i in c){
+            document.write(i+":"+c[i]+"<br>");
+        }
+        console.log(c);
+
+        //求和
+        var arr = [1,2,3,4,5,6,7];
+        function sum(arr){
+            var sum = 0;
+            for(var i = 0; i < arr.length; i++){
+                sum += arr[i];
+            }
+            return sum;
+        }
+        console.log(sum(arr));
+
+        //求数组中属性a的值
+        var sz = [1,2,3,{a : 2},'aaa',false,null,[3,4],function b(){}];
+        console.log(sz[3].a);
+        //数组中最后一个元素打印出来
+        console.log(sz[sz.length-1]);
+        //改变数组中的布尔类型
+        sz[5] = 1 ;
+        console.log(sz);
+    </script>
+</body>
+</html>
