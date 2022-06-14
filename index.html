@@ -54,10 +54,10 @@
               var bm = cur[i].class;
               var iu = cur[i].isSupper;
               var sc = cur[i].scope;
-              str = str + '<td>'+ name +'</td><td>'+ dz + '</td><td>'+ bm + '</td><td>'+ iu + '</td><td>'+ sc + '</td>>';
+              str = str + '<tr class="con"><td>'+ name +'</td><td>'+ dz + '</td><td>'+ bm + '</td><td>'+ iu + '</td><td>'+ sc + '</td>><tr>';
               // console.log(str)
             }
-          document.getElementsByClassName('con')[0].innerHTML = str;
+          document.getElementById('whole').innerHTML = str;
         });
   </script>
 </body>
