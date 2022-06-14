@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的是一个表格</title>
+</head>
+<body>
+  <style>
+    table {
+      border:0;
+      width:1200px;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin:150px auto 0 auto;
+    }
+    table tr{
+      height:50px;
+      border:0;
+    }
+    table tr td{
+      width:300px;
+    }
+  </style>
+  <div>
+    <table border="1" id="whole">
+      <tr class="con">
+          <td>name</td>
+          <td>dz</td>
+          <td>bm</td>
+          <td>row 4, cell 4</td>
+          <td>sc</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+        fetch('/api.json')
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data)
+            var cur = data.data;
+            // console.log(cur)
+            // var co = document.getElementsByClassName('con');
+            // var c = [...co];//tr
+            // //console.log(c)
+            var str = '';
+            var st = '';
+            for(let i = 0 ; i < cur.length; i++){
+              var name = cur[i].name;
+              // console.log(name)
+              var dz = cur[i].id;
+              // console.log(dz)
+              var bm = cur[i].class;
+              var iu = cur[i].isSupper;
+              var sc = cur[i].scope;
+              str = str + '<td>'+ name +'</td><td>'+ dz + '</td><td>'+ bm + '</td><td>'+ iu + '</td><td>'+ sc + '</td>>';
+              // console.log(str)
+            }
+          document.getElementsByClassName('con')[0].innerHTML = str;
+        });
+  </script>
+</body>
+</html>
