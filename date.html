@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date作业</title>
+</head>
+<body>
+    <p id="thdate"></p>
+    <script>
+    // 写一个方法实现：
+    //"2022-06-08 09:00:00"  希望转换成  "2022年06月08 09时00分00秒"
+    var thDate = document.getElementById('thdate');
+    var date = new Date('2022-06-08 09:00:00');
+    var year = date.getFullYear();//年
+    // console.log(year)
+    var month = date.getMonth() + 1;//月
+    // console.log(month)
+    var day = date.getDate()//日;
+    // console.log(day)
+    var hours = date.getHours();//小时
+    // console.log(hours)
+    var minites = date.getMinutes()//分
+    // console.log(minites)
+    var seconds = date.getSeconds()//秒
+    // console.log(seconds)
+    var time = year + '年' + format(month) + '月' + format(day) + ' ' + format(hours) + '时' + format(minites)+ '分' + format(seconds) + '秒'
+    // console.log(time)
+    function format(num){//format()函数主要用于对字符串进行格式化
+        if( num < 10 ){
+            return '0' + num;
+        }else{
+            return num;
+        }
+    }
+    thDate.innerHTML = time;
+    </script>
+</body>
+</html>

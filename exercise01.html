@@ -4,50 +4,801 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>上课内容及作业</title>
 </head>
 <body>
+    <!-- <div id="one"></div> -->
+    <!-- <div id="app"></div>
+    <button>点击抽奖</button> -->
+    <!-- <div id="test">123</div> -->
+    <p id="thdate"></p>
     <script>
-        let a = 6;
+        // let a = 6;
         // let a = 2; //let 不能被重复定义。
-        console.log(a);
+        // console.log(a);
 
-        //循环遍历每一个数组中的值
-        var arr = [1,2,3,4,5,6];
-        for(var i = 0; i < arr.length; i++){
-            console.log(i);
-        };
+        //作业1:循环遍历每一个数组中的值
+        // var arr = [1,2,3,4,5,6];
+        // for(var i = 0; i < arr.length; i++){
+        //     console.log(i);
+        // }
 
-        //遍历对象中每一个属性的值
-        var c = { 
-            name: 'david',
-            age: 38,
-            sex: 'male'
-        };
-        for(var i in c){
-            document.write(i+":"+c[i]+"<br>");
-        }
-        console.log(c);
+        //作业2:遍历对象中每一个属性的值
+        // var c = { 
+        //     name: 'david',
+        //     age: 38,
+        //     sex: 'male'
+        // };
+        // for(var i in c){
+        //     document.write(i+":"+c[i]+"<br>");
+        // }
+        // console.log(c);
 
-        //求和
-        var arr = [1,2,3,4,5,6,7];
-        function sum(arr){
-            var sum = 0;
-            for(var i = 0; i < arr.length; i++){
-                sum += arr[i];
-            }
-            return sum;
-        }
-        console.log(sum(arr));
+        //作业3：求和
+        // var arr = [1,2,3,4,5,6,7];
+        // function sum(arr){
+        //     var sum = 0;
+        //     for(var i = 0; i < arr.length; i++){
+        //         sum += arr[i];
+        //     }
+        //     return sum;
+        // }
+        // console.log(sum(arr));
 
         //求数组中属性a的值
-        var sz = [1,2,3,{a : 2},'aaa',false,null,[3,4],function b(){}];
-        console.log(sz[3].a);
+        // var sz = [1,2,3,{a : 2},'aaa',false,null,[3,4],function b(){}];
+        // console.log(sz[3].a);
         //数组中最后一个元素打印出来
-        console.log(sz[sz.length-1]);
+        // console.log(sz[sz.length-1]);
         //改变数组中的布尔类型
-        sz[5] = 1 ;
-        console.log(sz);
+        // sz[5] = true ;
+        // console.log(sz);
+
+        //5月7日作业：定义一个数组，里面包括所有的基础类型，我不断向数组中添加3次值，
+        //每次添加一种引用类型，然后，我将第二位和末位进行互换，打印最后的数组。
+
+        // var arr = [9,'作业',true,undefined,null];
+
+        // var newone = arr.push({1:3});
+        // var newtwo = arr.push([7,8,9]);
+        // var three  = arr.push(function d(){});
+        //     arr[2] = arr.splice([arr.length-1]);
+        // console.log(arr);
+
+
+        // 需求：用一个函数实现数组内的数值相减
+        // var arr = [1,2,3,4,5,6];
+        // function ming (){
+        //     var res = 0;
+        //     for(var i = 0 ; i < arr.length ; i++){
+        //         console.log(arr[i]);
+        //         res = res - arr[i];
+                
+        //     }
+        //     return res;
+        // }
+        // console.log(ming());
+
+        // 需求: 定义一个数组长度为6的number类型数组，要求，数组中前三个值相加，后面的值相减。求得最后结果。
+        // var arr = [1,2,3,4,5,6];
+        // function aaa (){
+        //     var res = 0;
+        //     for(var i = 0 ; i < arr.length ; i++){
+        //         if(i<3){
+        //             res = res + arr[i];
+        //         }else{
+        //             res = res - arr[i]
+        //         }
+        //     }
+        //     return res;
+        // }
+        // console.log(aaa());
+
+        // var a = 1;//数字
+        // var b = [2,3,4];//数组
+        // var c = { j : 6 };//对象
+        // var d = 'kkk'; //字符串
+        // var f ; //undefined
+        // var g = null;//null
+        // var h = true;
+        // function help (){
+
+        // }
+        // console.log(typeof a);//number
+        // console.log(typeof d);//string
+        // console.log(typeof f);//undefined
+        // console.log(typeof h);//blone-----?boolean ------
+        // console.log(typeof help);//f------?function
+        // //------------------------------------------------------------------
+        // console.log(typeof c);//obj ------?object
+        // console.log(typeof g);//NaN------?object
+        // console.log(typeof b);//arr ------?object
+        // console.log(typeof Object.prototype.toString.call(c));//[object Object]  string
+        // console.log(Object.prototype.toString.call(b));//[object Array]
+        // console.log(Object.prototype.toString.call(g));//[object Null]
+       
+
+
+        // var test = [1,null,undefined,function () {console.log(1)}, {b:1}, 'string'];
+        //当我遇到数字时 我就+1，
+        //当我遇到函数时 我就去执行，
+        //当我遇到对象时，我就给他添加属性c:2;
+        // for(var i = 0 ; i < test.length ; i++){
+        //     if(typeof test[i] === "number"){
+        //         test[i] = test[i] + 1;
+        //     }else if(typeof test[i] === 'function'){
+        //         test[i]() ;
+        //     }else if(
+        //         typeof test[i] === 'object' && Object.prototype.toString.call(test[i]) !== '[object Null]'
+        //     ){
+        //         test[i].c = 2
+        //     }
+        // }
+        // console.log(test);
+
+
+        //5月9日作业
+        // var demo = [
+        //             function () { console.log(1);},
+        //             null,
+        //             false,
+        //             [2,3,4],
+        //             'string',
+        //             [1,2],
+        //             undefined,
+        //             { c: 2 }
+        //         ]
+
+        // 需求：当我需要长度为2的数组时，我要添加一个null进去，
+        //当我需要普通对象时，我要删除他原有的属性，并给他新增一个新的属性f,值为1，
+        //当我遇到函数的时候，我要执行他。
+        // for( var i = 0; i < demo.length; i++){
+        //     if(typeof demo[i] === 'object' && Object.prototype.toString.call(demo[i]) !== '[object Null]' && demo[i].length == 2
+        //     ){
+        //         demo[i].push( null );
+        //     }else if(
+        //         typeof demo[i] === 'object' 
+        //         && Object.prototype.toString.call(demo[i]) !== '[object Null]' 
+        //         && Object.prototype.toString.call(demo[i]) !== '[object Array]' 
+        //         ){
+        //             delete demo[i].c;
+        //             demo[i].f = 1;
+        //     }else if(typeof demo[i] === 'function'){
+        //         demo[i]();
+        //     }
+        //     console.log(demo[i])
+        // }
+
+
+
+
+        //5月10日作业：
+        //定义一个数组 A，其值为1,2,3,4 . 
+        //定义一个数组B， 其值为5,6,7，
+        //尝试写一个方法，让两个数组合并在一起，形成1,2,3,4,5,6,7。
+        //要求：至少写出两种合并的方法。
+        
+        //第一种解题办法
+        // var A = [1,2,3,4];
+        // var B = [5,6,7];
+        // for(i in B){
+        //     A.push(B[i]);// A.push(B);//1、push()是添加到数组的末尾。2、push(B)不行,必须是B里面的每一个值
+        // }
+        // console.log(A);
+        
+        //第二种解题办法
+        // var A = [1,2,3,4];
+        // var B = [5,6,7];
+        // var C = A.concat(B);//1、js的Array对象提供了一个叫concat()方法，连接两个或更多的数组，并返回结果。2、cancat 不改变原数组。
+        // console.log(C);
+
+        //第三种解题办法
+        // var A = [1,2,3,4];
+        // var B = [5,6,7];
+        // A.push.apply(A, B); //push.apply合并数组是把后一个数组的值依次push进前一个数组，使前一个数组发生改变，并且只能两个数组之间发生合并。
+        // console.log(A);     
+
+       
+        // 请答题：
+        // var data = [
+        // {
+        //     id: 0,
+        //     name: '小明',
+        // },
+        // {
+        //     id: 1,
+        //     name: '小黑',
+        // },
+        // {
+        //     id: 2,
+        //     name: '小红',
+        // },
+        // {
+        //     id: 3,
+        //     name: '小绿',
+        // },
+        // {
+        //     id: 4,
+        //     name: '小紫',
+        // }
+        // ]
+
+        // 请输出所有小孩的姓名并用加号连接。
+        // var a = '';
+        // for(var i = 0; i < data.length; i++){
+        //     // console.log(data[i].name)
+        //     if(i == data.length-1){
+        //         a = a + data[i].name ;
+        //     }else{
+        //         a = a + data[i].name + '+';
+        //     }           
+        // }
+        // console.log(a);
+
+
+        
+//数组内所有名字相加输出
+        // var arr = [
+        //             [{
+        //                 id: 1,
+        //                 name: '小黑',
+        //             }],
+        //             [{
+        //                 id: 2,
+        //                 name: '小红',
+        //             }],
+        //             {
+        //                 id: 3,
+        //                 name: '小绿',
+        //             }
+        //         ]
+        // var res = '';
+        // arr = arr.flat(2);
+        // for(var i = 0; i < arr.length; i++){
+        //     if( i === arr.length-1){
+        //         res = res + arr[i].name;
+        //     }else{
+        //         res = res + arr[i].name + '+';
+        //     }
+        // }
+        // console.log(res);
+
+
+
+
+        // 数组:    
+        //可以改变原来的数组
+            // push();
+            // unshift();
+            // pop();
+            // shift();
+            //排序？       sort()
+            //切割？       splice() //替换数组中的指定项
+            //首尾调位置?  reverse() //将一个数组中的全部项顺序置反
+
+
+        //不可以改变原来的数组
+            // slice()   //1、参数允许为负数，表示数组的倒数第几项 2、如果不提供第二个参数，表示从指定项开始提取所有后续所有项作为子数				组，不改变原数组
+                //flat()    //二维降为一维，不改变原数组
+            // concat()  //连接两个或更多的数组，并返回结果，不改变原数组
+
+
+        // join()    //使数组转为字符串  如同调用toString()
+        // split()   //使字符串转为数组
+
+
+        // indexOf() //搜索数组中的元素 并返回元素的位置，如果元素不存在，则返回-1
+        // includes()//判断一个数组是否包含一个指定的值，返回boolean 
+
+
+
+        //5月11日作业
+            // var arr1 = [{
+            //         id: 0,
+            //         name: '小明1'
+            //     },{
+            //         id: 1,
+            //         name: '小明2'
+            //     },{
+            //         id: 2,
+            //         name: '小明3'
+            //     },{
+            //         id: 3,
+            //         name: '小明4'
+            //     }]
+            // var arr2 = [{
+            //         id: 0,
+            //         age: 12
+            //     },{
+            //         id: 0,
+            //         sex: '男'
+            //     },{
+            //         id: 2,
+            //         age: 14
+            //     },{
+            //         id: 3,
+            //         age: 10
+            // }]
+            // 已知两条数据，现在要求数据根据
+            // 相同ID进行整合。
+            // 输出最终的数组
+            // var res = [];
+            // var cc = function(){};
+            // for(var i = 0 ; i < arr1.length ; i++){
+            //     for(var j = 0 ; j < arr2.length ; j++){
+            //        if(arr1[i].id === arr2[j].id){
+            //            //arr1[i]代表arr1 数组中的每一个对象
+            //            //arr2[i]代表arr2 数组中的每一个对象
+            //             res.push(Object.assign(arr1[i],arr2[j]));
+            //         //    var isExit = cc(res,arr2[j].id);
+            //         //    if (!isExit){
+                       //         res.push(Object.assign(arr1[i]),arr2[i]);
+            //         //    }
+            //         }
+            //     }
+                
+            // }
+            // console.log(res)
+            
+
+//***********************************************************************************************
+            // var obj1 = {
+            //             a: 1,
+            //             b: 2
+            //         }
+            // var obj2 = {
+            //             c: 3,
+            //             d: 4
+            //         }
+            // 请写出一个方法，接受两个对象作为参数，合并后生成一个新的对象。
+
+        //    function hh(a,b){
+        //         var res = {};//将要输出的新对象
+        //         for(const key in a){//key是a里面的属性名字
+        //             res[key] = a[key]
+        //         }
+        //         for(const key in b){//key是b里面的属性名字
+        //             res[key] = b[key]
+        //         }
+        //         return res;
+        //    }
+        //    console.log(hh(obj1, obj2));
+//***********************************************************************************************
+        //    var obj1 = {
+        //         a: [1,2,3],
+        //         b: ['a', 'b', 'c']
+        //         }
+        //     var obj2 = {
+        //         a: [4,5,6],
+        //         b: ['d', 'e', 'f']
+        //         }
+            // 请写出一个方法，接收两个对象，并将两个对象融合成一个新的对象返回。
+                // function tt(a,b){
+                //     var obj = {};
+                //     for(const key in a){
+                //        obj[key] = a[key];//obj[key] = a: [1,2,3],b: ['a', 'b', 'c']
+                //      }
+                //     for(const key in b){
+                //         obj[key] = obj[key].concat(b[key]);
+                //     }
+                //     return obj;
+                //    }
+                // console.log(tt(obj1,obj2)) ;
+//***************************************************************************************************
+
+// function js(a,b){
+//     var obj = {};
+//     for(var key in a){
+//         obj[key] = a[key];  // obj[key] = a: [1,2,3],b: ['a', 'b', 'c']
+//     }
+//     for(var key in b){
+//         // obj[key] = b[key];// obj[key] =b: [4,5,6], b: ['d', 'e', 'f']
+//         obj[key] = a[key].concat(b[key]);
+//     }
+//     return obj;
+// }
+// console.log(js(obj1,obj2));
+//***************************************************************************************************
+            // function test (args) {
+            // if (typeof args === 'object') {
+            //     if (Object.prototype.toString.call(args) === '[object Array]') {
+                //     for (let i = 0; i < args.length; i++) {
+                //         if (args[i].id === 0) {
+                //         return args[i].name
+                //         }
+                //     }
+            //     }
+            //     if (Object.prototype.toString.call(args) === '[object Null]') {
+            //      return args + "";
+            //     }
+            //     if (Object.prototype.toString.call(args) === '[object Object]') {
+                //     for (const key in args) {
+                //         if (args[key] === 0) {
+                //         return key;
+                //         }    
+                //     }
+            //     }
+            // }
+            // // .....
+            // }
+
+// console.log(test({a: 1}));
+//***************************************************************************************************
+            // var obj = {
+            //     "code": 0,
+            //     "msg": "success",
+            //     "data": [{
+            //     "rank": 1,
+            //     "country_name": "挪威",
+            //     "country_flag": "xxxxx",
+            //     "medal_gold_count": 16,
+            //     "medal_silver_count": 8,
+            //     "medal_bronze_count": 13,
+            //     "medal_sum_count": "37",
+            //     "update_time": "2022-02-20 14:26:01"
+            //     }, {
+            //     "rank": 2,
+            //     "country_name": "德国",
+            //     "country_flag": "xxxxxx",
+            //     "medal_gold_count": 12,
+            //     "medal_silver_count": 10,
+            //     "medal_bronze_count": 5,
+            //     "medal_sum_count": "27",
+            //     "update_time": "2022-02-20 14:26:01"
+            //     }, {
+            //     "rank": 3,
+            //     "country_name": "中国",
+            //     "country_flag": "xxxxxx",
+            //     "medal_gold_count": 9,
+            //     "medal_silver_count": 4,
+            //     "medal_bronze_count": 2,
+            //     "medal_sum_count": "15",
+            //     "update_time": "2022-02-20 14:26:01"
+            //     }]
+            // }
+// 1. 请将国家名称收集到一个数组中。(简单)
+// 2. 请将数据按照 "medal_bronze_count" 排序输出数据。(中等)
+// 3. 请将数据 medal_gold_count，medal_silver_count， medal_bronze_count 相加得出的值赋予给属性b。(困难)
+        // function country(obj){
+        //     var arr = [];
+        //     for( var i = 0;i < obj.data.length; i++){
+        //         //obj.data 代表数组
+        //         //i 代表位序
+        //         arr.push(obj.data[i].country_name)//代表获取的对象名称 字符串
+        //     }
+        //     return arr;
+        // }
+        // console.log(country(obj))
+
+
+        // function nameSort(source){
+        //     const res = [];
+        //     //source === obj
+        //     for( let i = 0; i < source.data.length; i++){
+        //         //element =====> 数组中的每一个对象
+        //         const element = source.data[i];
+        //         //获取当前的 medal_bronze_count 值
+        //         //i 代表位序
+        //         // element.medal_bronze_count === number 3
+        //         if(res.length === 0){
+        //             res.push(element);
+        //             continue;//打破当前的循环进行下一个循环
+        //             //break； 打破整个循环
+        //         }
+        //         //console.log(res,element,'---1---');
+        //         //此时数组中至少有一个值
+        //         for(let j = 0 ; j < res.length; j++){
+        //             //获取res中每个对象
+        //             const current = res[j]; //挪威 -->13
+        //             //current.medal_bronze_count --比较-- element.medal_bronze_count
+        //             //挪威--比较--德国
+        //             if(current.medal_bronze_count > element.medal_bronze_count){
+        //                 res.unshift(element);
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     return res;
+        // }
+        // console.log(nameSort(obj))
+//***************************************************************************************************
+        // function count(source){
+        //     //source === obj
+        //     const res = [];
+        //     for(let i = 0 ; i < source.data.length ; i++){
+        //         const element = source.data[i];
+        //         element.b = element.medal_gold_count + element.medal_silver_count + element.medal_bronze_count;
+        //         res.push(element);
+               
+        //     }
+        //     return res;
+        // }
+        // console.log(count(obj))
+//***************************************************************************************************        
+        // var obj = {
+        //             tel: [
+        //                 {
+        //                 id: 9,
+        //                 te: 1888121212121
+        //                 },
+        //                 {
+        //                 id: 0,
+        //                 te: 17722222222
+        //                 },
+        //                 {
+        //                 id: 8,
+        //                 te: 166000003333
+        //                 }
+        //             ],
+        //             score: [
+        //                 {
+        //                 id: 9,
+        //                 sc: 120
+        //                 },
+        //                 {
+        //                 id: 0,
+        //                 sc: 110
+        //                 },
+        //                 {
+        //                 id: 8,
+        //                 sc: 100
+        //                 }
+        //             ],
+        //             list: [
+        //                 { 
+        //                 id: 0,
+        //                 name: "张三",
+        //                 age: 12,
+        //                 },
+        //                 {
+        //                 id: 9,
+        //                 name: "李四",
+        //                 age: 8,
+        //                 },
+        //                 {
+        //                 id: 8,
+        //                 name: "麻子",
+        //                 age: 30,
+        //                 }
+        //             ],
+        //         }
+// 请将上述数据按照ID进行重组融合，输出最终数组。
+            // var arr1 = obj.tel;
+            // var arr2 = obj.score;
+            // var arr3 = obj.list;
+            // var arr = [...arr1,...arr2,...arr3];
+            // var diff = [];//不重复的id
+            // var res = []//最终数组
+            // for(var i = 0 ; i < arr.length ; i++) {
+            //     if(diff.indexOf(arr[i].id)<0){
+            //         diff.push(arr[i].id)
+            //         // console.log(diff)
+            //     }
+            // }
+            // for(var i = 0 ;i < diff.length ; i++){
+            //     var id = diff[i];
+            //     var item = {};
+            //     for(var j = 0 ;j < arr.length ; j++) {
+            //         if(id === arr[j].id){
+            //             item = Object.assign(item,arr[j])
+            //         }
+            //     }
+            //     res.push(item)
+            // }
+            // console.log(res)
+//***************************************************************************************************
+// fetch('http://127.0.0.1:8080/api.json')
+//   .then(res => res.json())
+//   .then(data => document.getElementById('app').innerHTML = data.msg);
+
+
+// fetch('http://127.0.0.1:8080/api.json')
+//   .then(function(res){
+//       return res.json()
+//   })
+//   .then(function (data) {
+//     return document.getElementById('app').innerHTML = data.msg
+//   });
+//***************************************************************************************************
+            // var arr = [-1, 0 , 1];
+            // var oDiv = document.getElementById('one');
+            // var index = 0;
+            // for(let i = 0 ; i < arr.length; i++){//
+                
+            //     var p = document.createElement('p');//渲染数据
+            //     p.innerHTML = arr[i];
+            //     p.style.background = 'black';
+            //     p.style.color = '#fff';
+            //     p.onclick = function(){
+            //         var pre = arr[i] - 1;
+            //         var cur = arr[i];
+            //         var next = arr[i] + 1;
+            //         arr = [pre,cur,next];
+            //         for(var j = 0 ; j < arr.length; j++){
+            //             document.getElementsByTagName('p')[j].innerHTML = arr[j];
+            //         }
+            //     }
+            //     oDiv.appendChild(p);
+            //     // console.log(p)
+            // }
+//***************************************************************************************************           
+        // var arr = [10,200,30,150,100,20,150,50];
+        // // 1. 获取根节点
+        // var root = document.getElementById('app');
+        // var btn = document.getElementsByTagName('button')[0];
+        // // 索引每一个DOM节点的。
+        // var index = 0;
+        // // 我想让第6个单位中奖
+        // var control = 12; 
+        // // 2. arr数组中每一个元素添加到盒子内
+        // for (let i = 0; i < arr.length; i++) {
+        //     const element = arr[i];
+        //     // appendChild(element)
+        //     const div = document.createElement('p');
+        //     div.innerHTML = arr[i] + '元';
+        //     div.style.display = 'inline-block';
+        //     div.style.width = '100px';
+        //     div.style.height = '100px';
+        //     div.style.background = '#000';
+        //     div.style.color = '#fff';
+        //     div.style.fontSize = '20px';
+        //     div.style.textAlign = 'center';
+        //     div.style.lineHeight = '100px';
+        //     div.style.marginRight = '10px';
+        //     div.style.marginBottom = '10px';
+        //     root.appendChild(div);
+        // }
+        // // 预设一种独特的样式；
+        // function change (i) {
+        //     // 清除所有的样式；
+        //     var domArr = document.getElementsByTagName('p');
+        //     for (let i = 0; i < domArr.length; i++) {
+        //         let div = domArr[i];
+        //         div.style.display = 'inline-block';
+        //         div.style.width = '100px';
+        //         div.style.height = '100px';
+        //         div.style.background = '#000';
+        //         div.style.color = '#fff';
+        //         div.style.fontSize = '20px';
+        //         div.style.textAlign = 'center';
+        //         div.style.lineHeight = '100px';
+        //         div.style.marginRight = '10px';
+        //         div.style.marginBottom = '10px';
+        //     }
+        //     var pDom = document.getElementsByTagName('p')[i];
+        //     pDom.style.background = '#fff';
+        //     pDom.style.color = '#000';
+        //     pDom.style.border = '1px solid #000'
+        // }
+        // change(index);
+        // btn.onclick = function () {
+        //     var tiem = setInterval(function () {
+        //         // 创建轮询调用
+        //         index++;
+        //         // 如何计算？？？？
+        //         if(index <length){
+        //             if (index === control) {
+        //                 // 如何清除？
+        //                 clearInterval(tiem)
+        //             }
+        //         }else{
+        //             //大于？？？
+        //             control = control -length;
+        //             index = 0;
+        //         }
+        //         change(index);
+        //     }, 1000);
+        // }
+//***************************************************************************************************
+
+
+
+// console.log(t)
+// function $2(str){
+//     console.log(str, '<--- 参数一  #test ---');
+//     var id = str.substring(1, str.length); // test
+//     var t = document.getElementById(id); // t ===> DOM
+//     return {
+//         css: function (key, value) {
+//             t.setAttribute('style', ""+key+":"+value+"");
+//         }
+//     }
+// }
+// $2('#test').css('color', 'red');
+// $('#test').css('color', 'red'); 原本 <div id="test" style="color: red"></div>
+// $2('#test').css('color', 'red'); 自定义
+//***************************************************************************************************
+
+
+
+
+
+
+//***************************************************************************************************
+// jQuery.inArray() ---------  返回数组中指定元素的索引值
+// $.inArray() 函数用于在数组中查找指定值，并返回它的索引值（如果没有找到，则返回-1
+
+    // function j_array(value, arr){
+    //     var arr = [1,2,3];
+    //     for(let i = 0 ; i < arr.length ; i++){
+    //         if(arr[i] === 3){
+    //             return i;
+    //         }
+    //         if(arr[i] === arr.length-1){
+    //             return -1;
+    //         }
+    //     }
+    // }
+    // console.log(j_array())
+//***************************************************************************************************
+// 6月7号作业：
+    //1. 什么是作用域？
+    //2. 什么是函数作用域？ 什么是块作用域？
+    //3. 什么是闭包？
+//1、作用域是可以访问变量，对象和函数的集合。
+//2、函数作用域也叫局部作用域：变量在函数内声明的，只能在函数内部访问。
+        //在函数作用域中可以访问全局变量，但在全局作用域中无法访问到局部变量。
+   //块作用域：在{}中的代码都属于一个块。 变量只在当前块作用域内可以被访问，无法被外层访问。
+//3、闭包是指可以访问另一个函数作用域变量的函数，一般是定义在外层函数中的内层函数。
+
+//***************************************************************************************************
+
+//6月8号作业：
+//利用 call 去实现一个 apply的方法。
+    // var a = 10 ;
+    // var obj = { a : 1 };
+    // function demo(a,b){
+    //     //此时this === window
+    //     console.log(this.a)//10
+    //     console.log(a);//test1
+    //     console.log(b);//test2
+    // }
+    //  // demo('test1','test2');
+    // demo.call(obj , 'test1','test2')
+    // demo.apply(obj , ['test1','test2'])
+    // //给demo添加一个apply2方法
+    // demo.apply2 = function(item , args){
+    //     //此处处理args不是数组的情况
+    //     if(Object.prototype.toString.call(args) !== '[object Array]'){
+    //         throw '请输入一个数组';// throw 抛出异常; 异常可以是 JavaScript 字符串、数字、逻辑值或对象：
+    //     }
+    //     return this.call(item , args[0] , args[1])
+    // }
+    // demo.apply2(obj,['test1','test2']);
+//***************************************************************************************************
+
+    //6月9号作业：
+    //利用fetch将表格的数据渲染出来。
+//***************************************************************************************************
+
+    //6月10号作业：： 写一个方法实现：
+    //"2022-06-08 09:00:00"  希望转换成  "2022年06月08 09时00分00秒"
+    var thDate = document.getElementById('thdate');
+    var date = new Date('2022-06-08 09:00:00');
+    // console.log(daate)//Fri Jun 10 2022 16:19:55 GMT+0800 (中国标准时间)
+    // console.log(date.toLocaleString())
+    var year = date.getFullYear();
+    // console.log(year)//年
+    var month = date.getMonth() + 1;
+    //  console.log(month)//月
+    var day = date.getDate();
+    //  console.log(day)//日
+    var hours = date.getHours();
+    //  console.log(hours)//小时
+    var minites = date.getMinutes();
+    //  console.log(minites)//分钟
+    var seconds = date.getSeconds();
+    //  console.log(seconds)//秒数
+    var time = year + '年' + format(month) + '月' + format(day) + ' ' + format(hours) + '时' + format(minites)+ '分' + format(seconds) + '秒'
+    // console.log(time)
+    function format(num){//format()函数主要用于对字符串进行格式化
+        if(num < 10){
+            return '0' + num;
+        }else{
+            return num;
+        }
+    }
+    thDate.innerHTML = time;
     </script>
 </body>
 </html>
