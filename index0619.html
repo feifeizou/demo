@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    list-style: none;
+}
+#one{
+    width:400px;
+    margin:0 auto;
+    padding-top:150px;
+}
+a{
+    text-decoration: none;
+    width:100px;
+    line-height: 30px;
+    text-align: center;
+    font-size:24px;
+    border:1px solid #999;
+    color: blueviolet;
+    display: block;
+    float: left;
+    margin:0 10px;
+}
+.con .active{
+    background: red;
+    color: #fff;
+}
+.text li{
+    float: left;
+    width:300px;
+    height: 50px;
+    line-height: 50px;
+    font-size:22px;
+    color: peru;
+    text-align: center;
+    border:1px solid #999;
+    margin:30px;
+    display: none;
+}
+.text .active01{
+    background:green;
+    color: #fff;
+    display: block;
+}
+</style>
+<body>
+    <div id="one">
+        <div class="con fclear">
+            <a href="javascript:;" class="active">第一</a>
+            <a href="javascript:;">第二</a>
+            <a href="javascript:;">第三</a>
+        </div>
+        <ul class="text fclear">
+            <li class="active01">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        var c = document.getElementsByClassName('con')[0];
+        // console.log(c)
+        var ck = c.children;
+        // console.log(ck)
+        var cd = [...ck];
+        // console.log(cd)
+        var test = document.getElementsByClassName('text')[0];
+        var testCh = test.children;
+        var teCh = [...testCh];
+        // console.log(teCh)
+        for(let i = 0 ; i < cd.length; i++){
+            cd[i].setAttribute('index',i);//每一个dom对应的自定义属性index
+            teCh[i].setAttribute('index',i);//每一个dom对应的自定义属性index
+            cd[i].onclick = function(){
+            // console.log(111)
+               for(let j = 0 ; j < teCh.length; j++){
+                    //console.log(teCh[j])
+                    cd[j].className='';
+                    teCh[j].className='';
+                    teCh[j].style.display = 'none';
+               }
+               cd[this.getAttribute('index')].className='active';
+               teCh[this.getAttribute('index')].className='active01';
+               teCh[this.getAttribute('index')].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
