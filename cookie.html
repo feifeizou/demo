@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+</head>
+<body>
+    <script type="'module">
+    
+//关于Cookie
+
+    // document.cookie = 'username=zs';
+    // document.cookie = 'age=18';
+
+    // console.log(document.cookie);
+
+
+    //cookie最重要的两个属性：名称(name) 和值（value）;
+        //如果名称或者值包含非英文字母，则需要使用encodeURIComponent()编码，读取时则要用decodeURIComponent()解码；
+        //document.cookie = `username=${encodeURIComponent('张三')}`;
+        //document.cookie = `${encodeURIComponent('用户名')}=${encodeURIComponent('张三')}`;一般名称使用英文，不用中文。    //
+
+    //cookie另一个重要属性： 失效（到期）时间；
+        //对于失效的 cookie ，会被浏览器清除。
+        //如果没有设置失效（到期）时间，这样的 cookie 称为会话 cookie;
+        //它存在内存中，当会话结束，也就是浏览器关闭时，cookie 消失。
+        //值与值之间用分号和空格 隔开；
+        //想长时间存在，设置 expires 或者 max-age ；
+            //expires 值为 Date 类型；
+                //document.cookie = `username=zou; expires=${new Date('2100-1-01 00:00:00')}}`;
+            //max-age 值为数字，表示当前时间+多少秒后过期，单位是秒；
+                //document.cookie = 'username=zou; max-age=5';
+                //document.cookie = `username=zou; max-age=${24*3600*30}`;     存活30天
+            //如果 max-age 的值为 0 或 负数，则 cookie 会被删除；
+
+    //当name、domain、path 这三个字断相同时，才是同一个cookie
+
+
+//cookie封装
+        import {set,get} from './cookie.js';
+        set('username','zou');
+        set('username','zs');
+        set('age','18');
+        set('用户名','李四');
+
+        set('sex','male',{
+            maxAge:30*24*3600
+        });
+
+        console.log(get('username'));
+        console.log(get('age'));
+        console.log(get('用户名'));
+        console.log(get('sex'));
+        
+
+</script>
+</body>
+</html>
